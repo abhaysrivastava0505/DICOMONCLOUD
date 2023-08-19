@@ -10,14 +10,19 @@
     <div>
         <ul>
             <li><a href="{{url_for('home')}}">Home</a></li>
+            {% if 'user' in session %}
+            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            {% else %}
             <li><a href="{{url_for('login')}}">Login</a></li>
+            <li><a href="{{url_for('signup')}}">SignUp</a></li>
+            {% endif %}
         </ul>
     </div>
-    <div id="header"> FORMS DEMO </div>
+    <div id="header"> DICOM ON CLOUD PROJECT </div>
     <div id="content">
         {% block content %}
         {% endblock %}
     </div>
-    <div id="footer"> Copyright © 2019 All Rights Reserved </div>
+    <div id="footer"> Copyright © 2023 All Rights Reserved </div>
 </body>
 </html
