@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{{url_for('static', filename='format.css')}}" />
-    <title>{% block title %}{% endblock %} - Forms Demo</title>
-    {% block head %}
-    {% endblock %}
+    <meta charset="utf-8">
+    <title>{% block title %} {% endblock %} - Paws Rescue Center</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
 </head>
 <body>
     <div>
-        <ul>
-            <li><a href="{{url_for('home')}}">Home</a></li>
+        <ul style="list-style-type: none;float: right;font-size: large;">
+            <li style="display:inline"><a href="{{url_for('home')}}">Home</a></li>
             {% if 'user' in session %}
-            <li><a href="{{url_for('logout')}}">Logout</a></li>
+            <li style="display:inline"><a href="{{url_for('logout')}}">Log Out</a></li>
             {% else %}
-            <li><a href="{{url_for('login')}}">Login</a></li>
-            <li><a href="{{url_for('signup')}}">SignUp</a></li>
-            {% endif %}
+            <li style="display:inline"><a href="{{url_for('signup')}}">Sign Up</a></li>
+            <li style="display:inline"><a href="{{url_for('login')}}">Login</a></li>
+            {% endif%}
         </ul>
     </div>
-    <div id="header"> DICOM ON CLOUD PROJECT </div>
+    <h1 id="title"> {% block heading %} {% endblock %} </h1>
     <div id="content">
-        {% block content %}
-        {% endblock %}
+        {% block content %} {% endblock %}
     </div>
-    <div id="footer"> Copyright © 2023 All Rights Reserved </div>
 </body>
-</html
+</html>

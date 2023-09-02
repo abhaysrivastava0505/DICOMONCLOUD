@@ -4,8 +4,28 @@
 Home Page
 {% endblock %}
 
-{% block content %}
-
-<h1>Home Page</h1>
-<p>Welcome to the Forms Demo.</p>
+{% block heading %}
+<h1>DICOM ON CLOUD🐾</h1>
+{% endblock %}
+{% block content%}
+  <table>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Bio</th>
+    </tr>
+    {% for patientRecord in patientRecords %}
+    <tr>
+        <td >
+            <a href="{{url_for('patientRecords_details', patient_record_id = patientRecord.id)}}">
+                <img src= "{{url_for('static', filename = patientRecord.id|string+".jpg")}}" height="100" >
+            </a>
+        </td>
+        <td>{{ patientRecord.title }}</td>
+        <td>{{ patientRecord.type }}</td>
+        <td>{{ patientRecord.modality }}</td>
+    </tr>
+    {% endfor %}
+  </table>
 {% endblock %}
